@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+  <table name="Categories" idMethod="native" phpName="Categories">
+    <column name="Category_ID" phpName="CategoryId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="Category_name" phpName="CategoryName" type="VARCHAR" size="120" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="Items" idMethod="native" phpName="Items">
+    <column name="Item_ID" phpName="ItemId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="Category_ID" phpName="CategoryId" type="INTEGER" required="true"/>
+    <column name="User_ID" phpName="UserId" type="INTEGER" required="true"/>
+    <column name="Item_Name" phpName="ItemName" type="VARCHAR" size="120" required="true"/>
+    <column name="Price" phpName="Price" type="FLOAT" required="true"/>
+    <column name="Description" phpName="Description" type="VARCHAR" size="600"/>
+    <column name="Date_Added" phpName="DateAdded" type="TIMESTAMP" required="true" defaultExpr="CURRENT_TIMESTAMP"/>
+    <column name="Date_Sold" phpName="DateSold" type="TIMESTAMP"/>
+    <column name="SubCategory_ID" phpName="SubcategoryId" type="INTEGER"/>
+    <column name="Image_Url" phpName="ImageUrl" type="VARCHAR" size="600"/>
+    <foreign-key foreignTable="Categories" name="fk_category_items">
+      <reference local="Category_ID" foreign="Category_ID"/>
+    </foreign-key>
+    <foreign-key foreignTable="SubCategories" name="fk_subcategory_items">
+      <reference local="SubCategory_ID" foreign="SubCategory_ID"/>
+    </foreign-key>
+    <foreign-key foreignTable="User" name="fk_user_items">
+      <reference local="User_ID" foreign="User_ID"/>
+    </foreign-key>
+    <index name="fk_category_items">
+      <index-column name="Category_ID"/>
+    </index>
+    <index name="fk_user_items">
+      <index-column name="User_ID"/>
+    </index>
+    <index name="fk_subcategory_items">
+      <index-column name="SubCategory_ID"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="SubCategories" idMethod="native" phpName="Subcategories">
+    <column name="SubCategory_ID" phpName="SubcategoryId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="Category_ID" phpName="CategoryId" type="INTEGER" required="true"/>
+    <column name="SubCategory_Name" phpName="SubcategoryName" type="VARCHAR" size="120" required="true"/>
+    <foreign-key foreignTable="Categories" name="fk_category_sub">
+      <reference local="Category_ID" foreign="Category_ID"/>
+    </foreign-key>
+    <index name="fk_category_sub">
+      <index-column name="Category_ID"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="User" idMethod="native" phpName="User">
+    <column name="User_ID" phpName="UserId" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="First_Name" phpName="FirstName" type="VARCHAR" size="120" required="true"/>
+    <column name="Last_Name" phpName="LastName" type="VARCHAR" size="120"/>
+    <column name="Email" phpName="Email" type="VARCHAR" size="120" required="true"/>
+    <column name="Password" phpName="Password" type="VARCHAR" size="120" required="true"/>
+    <column name="Address1" phpName="Address1" type="VARCHAR" size="120" required="true"/>
+    <column name="Address2" phpName="Address2" type="VARCHAR" size="120"/>
+    <column name="Zipcode" phpName="Zipcode" type="VARCHAR" size="120" required="true"/>
+    <column name="Phone_no" phpName="PhoneNo" type="INTEGER" size="120"/>
+    <unique name="UNQ_email">
+      <unique-column name="Email"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>

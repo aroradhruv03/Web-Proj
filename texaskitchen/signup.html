@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Texas Kitchen -- Sign Up</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+  <script src="signup.js"></script>
+ </head>
+  <body>
+	<!----start-header----->
+	 <div class="header">
+	     <div class="wrap">
+			<div class="top-header">
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" title="logo" /></a>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			<!---start-top-nav---->
+			<div class="top-nav">
+				<div class="top-nav-left">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="menu_search.php">Menu</a></li>
+						<li><a href="contact.html">Contact</a></li>
+						<div class="clear"> </div>
+					</ul>
+				</div>
+				<div class="top-nav-right">
+					<ul>
+                <li><a href="login.html">login</a></li>
+                <li class="active"><a href="signup.html">signup</a></li>
+                </ul>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			<!---End-top-nav---->
+		</div>
+	</div>
+   <!----End-header----->
+		 <!---start-content---->
+		 <div class="content">
+		 	<!---start-contact---->
+		 	<div class="contact">
+		 		<div class="wrap">
+				<div class="section group">
+				  <div class="col span_2_of_3">
+				  <div class="contact-form">
+				  	<h3>sign up</h3>
+					    <form method="POST" action="signup.php" id="signup-form">
+					    	<div>
+						    	<span><label>FIRST NAME</label></span>
+						    	<span><input name="firstname" id="firstname" type="text" class="textbox"></span>
+						    </div>
+                            <div>
+					    	  <span><label>LAST NAME</label></span>
+						    	<span><input name="lastname" id="lastname" type="text" class="textbox"></span>
+						    </div>
+                            <div>
+						    	<span><label>E-MAIL (Login id)</label></span>
+						    	<span><input name="username" id="username" type="text" class="textbox"></span>
+                                <span id="user-result"></span>
+						    </div>
+						    <div>
+						    	<span><label>PASSWORD</label></span>
+						    	<span><input name="password" type="password" class="textbox" id="password"></span>
+						    </div>
+                            <div>
+						    	<span><label>CONFIRM PASSWORD</label></span>
+						    	<span><input name="confirmpassword" type="password" class="textbox" id="confirmpassword"></span>
+						    </div>
+					      <div>
+						     	<span><label>PHONE NUMBER</label></span>
+						    	<span><input name="phonenumber" id="phonenumber" type="text" class="textbox"></span>
+						    </div>
+						    <div>
+						    	<span><label>ADDRESS</label></span>
+						    	<span><textarea name="address" id="address"> </textarea></span>
+						    </div>
+                            <div>
+						     	<span><label>SECURITY QUESTION</label></span>
+						    	<span><select name="security_question" id="security_question">
+    <option value="What is your petname?">What is your petname?</option>
+    <option value="What is your mothers maiden name?">What is your mothers maiden name?</option>
+    <option value="What is your first school name?">What is your first school name?</option>
+    <option value="What is your favorite holiday spot?">What is your favorite holiday spot?</option>
+    <option value="What is your first phone number?">What is your first phone number?</option>
+  </select></span>
+  <span><label>SECURITY ANSWER</label></span>
+  <span><input name="security_answer" id="security_answer" type="text" class="textbox"></span>
+						    </div>
+						   <div>
+						   		<span><input type="submit" name="submit" class="mybutton" value="Sign Up">
+                                <a href="index.html"><input type="button" class="mybutton" value="Cancel"></a></span>
+						  </div>
+					    </form>
+
+				    </div>
+  				</div>				
+			  </div>
+			</div>
+			</div>
+		 	<!---End-contact---->
+		 <!---End-content---->
+		 <!---start-footer---->
+		 <div class="footer">
+	     <p> </p>
+	     </div>
+		 <!---End-footer---->
+	</body>
+</html>
+

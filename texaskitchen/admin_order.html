@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Texas Kitchen -- View Orders</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
+  <link href="css/tablestyle.css" rel="stylesheet" type="text/css"  media="all" />
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/lightbox.css" media="screen" />
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+   <script src="vieworder.js"></script>
+   
+   <!-- jquery -->
+
+<script type="text/javascript">
+        $(document).ready(function (){
+		
+            $("#selection").change(function() {
+				document.getElementById("mainmessage").innerHTML="";
+				document.getElementById("searchresult").innerHTML="";
+                if ($(this).val() != "date") {
+                    $("#status").show();
+					$("#date").hide();
+
+                }else{
+                    $("#status").hide();
+					$("#date").show();
+                } 
+            });
+        });
+ </script>
+ </head>
+<body>
+<!----start-header----->
+	 <div class="header">
+	     <div class="wrap">
+			<div class="top-header">
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" title="logo" /></a>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			<!---start-top-nav---->
+			<div class="top-nav">
+				<div class="top-nav-left">
+					<ul>
+						<li class="active"><a href="admin_order.html">Orders</a></li>
+						<li><a href="add_menu1.php">Add Items</a></li>
+						<li><a href="updatemenu.php">Update Items</a></li>
+						<li><a href="adminaccount.html"> My Account</a></li>
+						<li><a href="logout.php">LOGOUT</a></li>
+						<div class="clear"> </div>
+					</ul>
+				</div>
+				<div class="top-nav-right">
+				</div>
+				<div class="clear"> </div>
+			</div>
+			<!---End-top-nav---->
+		</div>
+	</div>
+   <!----End-header----->
+  <div class="content">
+		 	<!---start-contact---->
+		 <div class="contact">
+			<div class="wrap">
+				<div class="section group">
+					<div class="col span_2_of_3">
+						<div class="contact-form">
+							<h3>Search Orders</h3>
+								<form>
+									<div>
+										<div id="mainmessage"></div>
+										<span><label>View Orders By</label></span>
+										<select name='selection' id='selection'>
+											<option value=''>Select Order Category</option>
+											<option value='status'>Order Status</option>
+										    <option value='date'>Order Date</option>
+										</select>
+									</div>
+									<div ID='status' style="display:none;">
+										<span><label>STATUS</label></span>
+										<select id="ostatus">
+										    <option value=''>Select a status</option>
+										    <option value='2'>All</option>
+											<option value='1'>Delivered</option>
+										    <option value='0'>InProcess</option>
+										</select>
+									</div>	
+									<div ID='date' style="display:none;">
+										<span><label>ORDER DATE</label></span>
+										<span><input name="date" type="Date" class="textbox" id="odate"></span>
+									</div>
+									<div>
+										<span><input type="button" id="button1"class="mybutton" value="Search Orders"></span>
+									</div>
+								</form>
+								<div id="message"></div>
+								<div id="searchresult"></div>
+							</div>
+						</div>				
+					</div>
+				</div>
+			</div>
+		 	<!---End-contact---->
+		 <!---End-content---->
+		 <!---start-footer---->
+	<div class="footer">
+	     <p> </p>
+	</div>
+		 <!---End-footer---->
+ </div>
+</body>
+</html>

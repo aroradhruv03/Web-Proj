@@ -1,0 +1,12 @@
+# Options -MultiViews
+# RewriteEngine On
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^ index.php [QSA,L]
+
+
+# RewriteEngine On    # Turn on the rewriting engine
+# RewriteRule    ^1/?$    index.php    [NC,L]    # Handle requests for "pet-care"
+
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^(.*)$ index.php?bookID=$1 [nc,qsa]
